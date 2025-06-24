@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card p-4 shadow" style="min-width: 400px;">
+    <h3 class="text-center text-success mb-4">Student Login</h3>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter your email"
+          [(ngModel)]="email"
+          name="email"
+          #emailRef="ngModel"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+        />
+        <small class="text-danger" *ngIf="loginForm.submitted && !emailRef.valid">
+          Please enter a valid email address.
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Enter your password"
+          [(ngModel)]="password"
+          name="password"
+          #passwordRef="ngModel"
+          required
+        />
+        <small class="text-danger" *ngIf="loginForm.submitted && !passwordRef.valid">
+          Password is required.
+        </small>
+      </div>
+
+      <!-- Login Button -->
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+
+      <!-- Registration Redirect -->
+      <p class="text-center mb-0">
+        Don't have an account?
+        <a routerLink="/register-student" class="text-decoration-none text-primary">Register here</a>
+      </p>
+    </form>
+  </div>
+</div>

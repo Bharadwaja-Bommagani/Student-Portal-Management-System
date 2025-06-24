@@ -1,0 +1,121 @@
+<div class="container py-5 bg-light" style="min-height: 100vh;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card p-4 shadow">
+        <h3 class="text-center text-success mb-4">Student Registration</h3>
+
+        <form (ngSubmit)="register()" #studentForm="ngForm">
+          <!-- First Name -->
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" placeholder="Enter first name"
+                   [(ngModel)]="student.firstName" name="firstName"
+                   pattern="[A-Za-z ]+" maxlength="15" required (keypress)="allowOnlyAlphabets($event)" />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['firstName']?.valid">
+              First Name is required.
+            </small>
+          </div>
+
+          <!-- Last Name -->
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter last name"
+                   [(ngModel)]="student.lastName" name="lastName"
+                   pattern="[A-Za-z ]+" maxlength="15" required (keypress)="allowOnlyAlphabets($event)" />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['lastName']?.valid">
+              Last Name is required.
+            </small>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email"
+                  name="email" [(ngModel)]="student.email" required
+                  email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                  #emailRef="ngModel" />
+            <small class="text-danger" *ngIf="studentForm.submitted && !emailRef.valid">
+              Enter a valid email.
+            </small>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" placeholder="Enter phone number"
+                  name="phone" [(ngModel)]="student.phone" required
+                  maxlength="10" minlength="10"
+                  #phoneRef="ngModel" (keypress)="allowOnlyNumbers($event)" />
+            <small class="text-danger" *ngIf="studentForm.submitted && (!phoneRef.valid || student.phone.length !== 10)">
+              Enter a valid 10-digit phone number.
+            </small>
+          </div>
+
+          <!-- Course -->
+          <div class="mb-3">
+            <label class="form-label">Course</label>
+            <input type="text" class="form-control" placeholder="Enter Course"
+                   [(ngModel)]="student.course" name="course"
+                   pattern="[A-Za-z ]+" maxlength="15" required (keypress)="allowOnlyAlphabets($event)" />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['course']?.valid">
+            Course is required.
+            </small>
+          </div>
+
+          <!-- Department -->
+          <div class="mb-3">
+            <label class="form-label">Department</label>
+            <input type="text" class="form-control" placeholder="Enter Department"
+                   [(ngModel)]="student.department" name="department"
+                   pattern="[A-Za-z ]+" maxlength="15" required (keypress)="allowOnlyAlphabets($event)" />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['department']?.valid">
+            Department is required..
+            </small>
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" placeholder="Enter address"
+                   [(ngModel)]="student.address" name="address"
+                   maxlength="15" required />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['address']?.valid">
+            Address is required.
+            </small>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Enter password"
+                   [(ngModel)]="student.password" name="password"
+                   maxlength="15" required />
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['password']?.valid">
+            Password is required.
+            </small>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="mb-3">
+            <label class="form-label"> Confirm Password </label>
+            <input type="password" class="form-control" placeholder="Enter confirm password"
+                   name="confirmPassword" #confirmPasswordRef="ngModel"
+                   [(ngModel)]="confirmPassword" maxlength="15" required />
+            <small class="text-danger" *ngIf="studentForm.submitted && student.password !== confirmPassword">
+              Passwords do not match.
+            </small>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-success">Register</button>
+          </div>
+
+          <p class="text-center mt-3 mb-0">
+            Already have an account?
+            <a routerLink="/login-student" class="text-decoration-none text-primary">Login here</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

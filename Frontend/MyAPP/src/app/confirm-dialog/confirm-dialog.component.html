@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <!-- Show Yes/No only if confirmation flag is true -->
+  <ng-container *ngIf="data.confirmation">
+    <button mat-button (click)="onClose(true)">Yes</button>
+    <button mat-button (click)="onClose(false)">No</button>
+  </ng-container>
+
+  <!-- Show OK button if it's just an information dialog -->
+  <ng-container *ngIf="!data.confirmation">
+    <button mat-button mat-dialog-close>OK</button>
+  </ng-container>
+</mat-dialog-actions>
+
+
+
+<!-- <h2 mat-dialog-title>{{ data.title }}</h2>
+
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <ng-container *ngIf="data.message?.includes('delete')">
+    <button mat-button (click)="onClose(true)">Yes</button>
+    <button mat-button (click)="onClose(false)">No</button>
+  </ng-container>
+
+  <ng-container *ngIf="!data.message?.includes('delete')">
+    <button mat-button mat-dialog-close>OK</button>
+  </ng-container>
+</mat-dialog-actions> -->

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center align-items-center bg-light min-vh-100">
+  <div class="container bg-white border border-success rounded-4 shadow-lg p-5" style="max-width: 90%;">
+
+    <!-- Heading -->
+    <div class="text-center mb-4">
+      <h2 class="text-success fw-bold">Student Dashboard</h2>
+      <hr class="w-25 mx-auto border-success">
+    </div>
+
+    <!-- Student Info and Actions -->
+    <div class="row mb-4">
+      <!-- Student Info -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h4 class="text-primary text-center mb-3">👩‍🎓 Student Profile</h4>
+          <p><strong>Name:</strong> {{ student?.firstName }} {{ student?.lastName }}</p>
+          <p><strong>Email:</strong> {{ student?.email }}</p>
+          <p><strong>Phone:</strong> {{ student?.phone }}</p>
+          <p><strong>Address:</strong> {{ student?.address }}</p>
+          <p><strong>Course:</strong> {{ student?.course }}</p>
+          <p><strong>Department:</strong> {{ student?.department }}</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h4 class="text-center text-info mb-3">⚙️ Actions</h4>
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-success btn-lg" (click)="onUpdateDetails()">✏️ Update Details</button>
+            <button class="btn btn-outline-warning btn-lg" (click)="onChangePassword()">🔐 Change Password</button>
+            <button class="btn btn-outline-danger btn-lg" (click)="logout()">🚪 Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Info Cards -->
+    <div class="row text-center">
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-primary">📅 Events</h5>
+          <p>Explore workshops, webinars, and campus programs.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-success">📝 Assignments</h5>
+          <p>Check your pending and submitted assignments.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-warning">💡 Hackathons</h5>
+          <p>Participate in coding events and innovation contests.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-danger">📊 Exam Results</h5>
+          <p>View your academic performance and grades.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

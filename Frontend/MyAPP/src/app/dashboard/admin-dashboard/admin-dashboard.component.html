@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center align-items-center bg-light min-vh-100">
+  <div class="container bg-white border border-primary rounded-4 shadow-lg p-5" style="max-width: 90%;">
+
+    <!-- Admin Dashboard Heading -->
+    <div class="text-center mb-5">
+      <h2 class="text-primary fw-bold">Admin Dashboard</h2>
+      <hr class="w-25 mx-auto border-2 border-primary">
+    </div>
+
+    <!-- Admin Details & Actions -->
+    <div class="row mb-5">
+      <!-- Left: Admin Details -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm rounded-4 p-4 h-100">
+          <h4 class="text-center text-info mb-3">👤 Admin Info</h4>
+          <p><strong>Name:</strong> {{ admin?.firstName }} {{ admin?.lastName }}</p>
+          <p><strong>Email:</strong> {{ admin?.email }}</p>
+          <p><strong>Phone:</strong> {{ admin?.phone }}</p>
+        </div>
+      </div>
+
+      <!-- Right: Actions -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm rounded-4 p-4 h-100">
+          <h4 class="text-center text-success mb-3">🔧 Actions</h4>
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-primary btn-lg" (click)="navigateToAddStudent()">➕ Add Student</button>
+            <button class="btn btn-outline-success btn-lg" (click)="navigateToViewStudents()">📋 View All Students</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Content Area -->
+    <div class="row text-center">
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-primary">📊 Assessments</h5>
+          <p>Manage and monitor academic assessments and internal tests.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-success">📅 Events</h5>
+          <p>Track upcoming events, workshops, and guest lectures.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-warning">💡 Hackathons</h5>
+          <p>Engage students in coding competitions and innovation fests.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 shadow-sm rounded-4 h-100">
+          <h5 class="text-danger">📈 Attendance</h5>
+          <p>Track attendance reports and manage regularity insights.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
